@@ -13,7 +13,7 @@ A simple Angular 6 dropdown menu with search.
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxDropdownMenuSearchModule } from 'ngx-pagination'; // <-- import the module
+import { NgxDropdownMenuSearchModule } from 'ngx-dropdown-menu-search'; // <-- import the module
 import { MyComponent } from './my.component';
 
 @NgModule({
@@ -29,9 +29,9 @@ export class MyAppModule {}
 // my.component.ts
 import { Component, OnInit } from '@angular/core';
 
-import { IConfig } from 'config';
-import { NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
+import { IConfig, NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
 
+type NameAndId = {name: string, id: number};
 
 @Component({
     selector: 'my-component',
@@ -40,7 +40,8 @@ import { NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
       <ngx-dropdown-menu-search
                         [config]="config"
                         [options]="options"
-                        [selectedOption]="selectedOption">
+                        [selectedOption]="selectedOption"
+                        (onOptionSelect)="onDropdownOptionSelect($event)">
       </ngx-dropdown-menu-search>
     </div>	               
     `
@@ -73,8 +74,12 @@ export class MyComponent {
                     }
         ]
 
-        //pass a pre-defined selected option to the dropdown
+        //pass a pre-defined selected option to the dropdown (optional)
         this.selectedOption = 'my selected option';
+    }
+
+    public onDropdownOptionSelect(option: NameAndId): void {
+        this.selectedOption = option;
     }
 
 }
