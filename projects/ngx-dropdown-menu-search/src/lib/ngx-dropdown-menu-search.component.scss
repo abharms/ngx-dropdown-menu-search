@@ -12,11 +12,19 @@ $red: #D91E18;
   $redDarker: darken($red, 6%);
   $redDarkest: darken($red, 16%);
 
+input:focus {
+    outline: none;
+}
+
 
 .dropdown-label {
-    background-color: $gray;
+    background-color: white;
     width: 100%;
     position: relative;
+}
+
+.bottom0 {
+    bottom: 0;
 }
 
 .gray-border-darker {
@@ -142,6 +150,10 @@ $red: #D91E18;
 .setPaddingLeft26 {
 	padding-left: 26px !important;
 }
+
+// .option {
+//     color: black;
+// }
 
 .option:hover {
  	background-color: #E6E8E9;

@@ -8,11 +8,9 @@ import { IConfig } from './config.models';
 })
 export class NgxDropdownMenuSearchComponent implements OnInit {
 
-    // @Input() backgroundColor: string;
     @Input() errorVisible: boolean;
     @Input() options: any[];
     @Input() selectedOption: any;
-    // @Input() textColor: string;
     @Input() config: IConfig;
 
     @Output() onDropdownClick: EventEmitter < any > = new EventEmitter < any > ();
@@ -21,10 +19,7 @@ export class NgxDropdownMenuSearchComponent implements OnInit {
     @ViewChild('hiddenSearchInput') hiddenSearchInput: ElementRef;
 
     public element: any;
-    public heightAndLineHeight = {
-        'height': this.config ? this.config.height : '20px',
-        'line-height': this.config ? this.config.lineHeight : '20px'
-    }
+    public heightAndLineHeight: any;
     public optionsVisible: boolean;
     public searchTerm: string;
 
@@ -33,20 +28,19 @@ export class NgxDropdownMenuSearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.config = {
-        //     flow: 'down',
-        //     height: '26px',
-        //     lineHeight: '26px',
-        // }
+        this.heightAndLineHeight = {
+            'height': this.config ? this.config.height : '20px',
+            'line-height': this.config ? this.config.lineHeight : '20px'
+        }
     }
 
     public dropdownClick(): void {
-        if (!this.config.isDisabled) {
+        if (this.config && !this.config.isDisabled) {
             this.optionsVisible = true;
-        }
-        this.onDropdownClick.emit();
-        //automatically select hidden input so we can quickly find an item
-        setTimeout( () => this.hiddenSearchInput.nativeElement.select(), 10); 
+            this.onDropdownClick.emit();
+            //automatically select hidden input so we can quickly find an item
+            setTimeout( () => this.hiddenSearchInput.nativeElement.select(), 10); 
+        } 
     }
 
     public onInputChange(event, term: string): void {

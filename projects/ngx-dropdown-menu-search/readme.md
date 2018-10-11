@@ -9,31 +9,90 @@ A simple Angular 6 dropdown menu with search.
 
 ## Simple Example
 
-	// app.module.ts
-	import { NgModule } from '@angular/core';
-	import { BrowserModule } from '@angular/platform-browser';
-	import { NgxDropdownMenuSearchModule } from 'ngx-pagination'; // <-- import the module
-	import { MyComponent } from './my.component';
+```ts
+// app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxDropdownMenuSearchModule } from 'ngx-pagination'; // <-- import the module
+import { MyComponent } from './my.component';
 
-	@NgModule({
-	    imports: [ BrowserModule, NgxDropdownMenuSearchModule ], // <-- include it in your app module
-	    declarations: [ MyComponent ],
-	    bootstrap: [ MyComponent ]
-	})
-	export class MyAppModule {}
+@NgModule({
+    imports: [ BrowserModule, NgxDropdownMenuSearchModule ], // <-- include it in your app module
+    declarations: [ MyComponent ],
+    bootstrap: [ MyComponent ]
+})
+export class MyAppModule {}
+```
 
 
-	// my.component.ts
-	import { Component } from '@angular/core';
+```ts
+// my.component.ts
+import { Component, OnInit } from '@angular/core';
 
-	@Component({
-	    selector: 'my-component',
-	    template: `
-	    <div style="width: 300px">
-	      <ngx-dropdown-menu-search></ngx-dropdown-menu-search>
-	    </div>	               
-	    `
-	})
-	export class MyComponent {
+import { IConfig } from 'config';
+import { NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
 
-	}
+
+@Component({
+    selector: 'my-component',
+    template: `
+    <div style="width: 300px">
+      <ngx-dropdown-menu-search
+                        [config]="config"
+                        [options]="options"
+                        [selectedOption]="selectedOption">
+      </ngx-dropdown-menu-search>
+    </div>	               
+    `
+})
+export class MyComponent {
+
+    public config: IConfig;
+    public options: any[];
+    public selectedOption: any;
+
+    constructor() {}
+
+    ngOnInit() {
+        //initialize your config object, all properties are optional
+        this.config = {
+            height: '30px',
+            lineHeignt: '30px',
+            searchEnabled: true
+        }
+
+        //an array of objects, requires a name property
+        this.options = [
+                    {
+                        name: 'Option1',
+                        id: 1
+                    },
+                    {
+                        name: 'Option2',
+                        id: 2
+                    }
+        ]
+
+        //pass a pre-defined selected option to the dropdown
+        this.selectedOption = 'my selected option';
+    }
+
+}
+```
+
+## Styling
+
+Custom styling can be achieved by simply overriding the default styles. To overcome Angular's view encapsulation, you may need to use the /deep/ operator to target it (depending on the type of encapsulation your component is using).
+
+To avoid specificity issues, just add your own custom class name to the element, which will allow your styles to override the defaults:
+
+```css
+.my-dropdown /deep/ .dropdown {
+    color: blue;
+}
+```
+
+```html
+<ngx-dropdown-menu-search class="my-dropdown"></ngx-dropdown-menu-search>
+```
+
