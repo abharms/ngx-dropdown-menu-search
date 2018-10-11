@@ -1,7 +1,7 @@
 <div class="ht0 dropdown relative" (window:mouseup)="autoCloseDropdown($event)">
 	<div [ngStyle]="heightAndLineHeight" *ngIf="!config?.searchEnabled || (config?.searchEnabled && !optionsVisible)" [ngClass]="{'disabled' : config?.isDisabled, 'cursorClass' : !config?.isDisabled, 'gray-border-darker' : !errorVisible, 'red-border-light' : errorVisible}"  (click)="dropdownClick()" class="dropdown-label setBorder border-radius in-block setPadding">
 		<span class="in-block setMargin ellipsis">{{selectedOption}}</span>
-		<i [style.line-height]="config?.lineHeight" class="fa fa-angle-down ft-size18 absolute right10" aria-hidden="true"></i>
+		<span [style.line-height]="config?.lineHeight" class="chevron-down-icon ft-size18 absolute right10"></span>
 	</div>
 
 	<input [ngStyle]="heightAndLineHeight" [(ngModel)]="searchTerm" *ngIf="optionsVisible && config?.searchEnabled" (click)="optionsVisible = true" class="dropdown setPadding setWidth100 border-radius gray-border-darker setBorder" type="text" placeholder="Search">
