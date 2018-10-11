@@ -22,6 +22,7 @@ A simple Angular 6 dropdown menu with search.
 	    bootstrap: [ MyComponent ]
 	})
 	export class MyAppModule {}
+	```
 
 
 	```ts
@@ -39,3 +40,4 @@ A simple Angular 6 dropdown menu with search.
 	export class MyComponent {
 
 	}
+	```
