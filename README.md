@@ -2,12 +2,12 @@
 
 A simple Angular 6 dropdown menu with search.
 
-#Quick Start
+## Quick Start
 
 	npm install ngx-dropdown-menu-search --save
 
 
-#Simple Example
+## Simple Example
 
 	// app.module.ts
 	import { NgModule } from '@angular/core';
