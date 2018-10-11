@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
 
 @Component({
   selector: 'dm-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dm';
+
 }

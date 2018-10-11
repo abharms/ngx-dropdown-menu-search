@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-dropdown-menu-search": [
+        "dist/ngx-dropdown-menu-search"
+      ],
+      "ngx-dropdown-menu-search/*": [
+        "dist/ngx-dropdown-menu-search/*"
+      ]
+    }
   }
 }
