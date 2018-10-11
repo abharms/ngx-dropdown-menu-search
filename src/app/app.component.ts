@@ -12,10 +12,10 @@ export class AppComponent {
 	public config: IConfig;
 
 	ngOnInit() {
-		// this.config = {
-		// 	height: '30px',
-		// 	lineHeight: '30px'
-		// }
+		this.config = {
+			height: '30px',
+			lineHeight: '30px'
+		}
 	}
 
 }

@@ -6,12 +6,6 @@ $gray: #E6E8E9;
 $light-gray: #F6F8F8;
     $lightGrayDarker: darken($light-gray, 6%);
 
-$red: #D91E18;
-  $redLight: lighten($red, 20%);
-  $redLighter: lighten($red, 40%);
-  $redDarker: darken($red, 6%);
-  $redDarkest: darken($red, 16%);
-
 input:focus {
     outline: none;
 }
@@ -30,13 +24,6 @@ input:focus {
 .gray-border-darker {
     border-color: $grayDarker;
 }
-
-.red-border {
-    border-color: $red;
-}
-    .red-border-light {
-        border-color: $redLight;
-    }
 
 .cursorClass {
 	cursor: pointer;
@@ -131,6 +118,10 @@ input:focus {
     width: 100%;
 }
 
+.mgn-left10 {
+    margin-left: 0.625rem
+}
+
 .relative {
     position: relative;
 }
@@ -151,9 +142,6 @@ input:focus {
 	padding-left: 26px !important;
 }
 
-// .option {
-//     color: black;
-// }
 
 .option:hover {
  	background-color: #E6E8E9;

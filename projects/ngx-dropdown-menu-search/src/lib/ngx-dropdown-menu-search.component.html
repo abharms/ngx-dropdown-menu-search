@@ -1,16 +1,15 @@
 <div class="ht0 dropdown relative" (window:mouseup)="autoCloseDropdown($event)">
 	<div [ngStyle]="heightAndLineHeight" *ngIf="!config?.searchEnabled || (config?.searchEnabled && !optionsVisible)" [ngClass]="{'disabled' : config?.isDisabled, 'cursorClass' : !config?.isDisabled, 'gray-border-darker' : !errorVisible, 'red-border-light' : errorVisible}"  (click)="dropdownClick()" class="dropdown-label setBorder border-radius in-block setPadding">
-		<h4 class="in-block setMargin ellipsis">{{selectedOption}}</h4>
+		<span class="in-block setMargin ellipsis">{{selectedOption}}</span>
 		<i [style.line-height]="config?.lineHeight" class="fa fa-angle-down ft-size18 absolute right10" aria-hidden="true"></i>
 	</div>
 
 	<input [ngStyle]="heightAndLineHeight" [(ngModel)]="searchTerm" *ngIf="optionsVisible && config?.searchEnabled" (click)="optionsVisible = true" class="dropdown setPadding setWidth100 border-radius gray-border-darker setBorder" type="text" placeholder="Search">
 
-	<div *ngIf="optionsVisible" [ngClass]="{'bottom0' : config?.flow === 'up', 'scrollable' : config?.scrollbarVisible}" class="setMaxHeight mgn-bottom50 text-left shadow absolute z setWidth100 white-bg setZ border gray-border-darker border-radius setPaddingTopBottom" id="scrollbar-style">
+	<div *ngIf="optionsVisible" style="width: 105%" [ngClass]="{'bottom0' : config?.flow === 'up', 'scrollable' : config?.scrollbarVisible}" class="setMaxHeight mgn-bottom50 text-left shadow absolute z white-bg setZ border gray-border-darker border-radius setPaddingTopBottom" id="scrollbar-style">
 		<ul *ngFor="let option of options | searchFilter:searchTerm; let i = index">
 			<li [ngClass]="{'gray-bg' : option.name === element?.id}" (mouseup)="onOptionClick(option, option.name)" id="{{option.name}}"  class="option cursorClass">{{option.name}}<i *ngIf="option.name === selectedOption" class="fa fa-check mgn-left10" aria-hidden="true"></i></li>
 		</ul>
-
 	</div>
 	<input *ngIf="optionsVisible" #hiddenSearchInput type="text" class="setWidth50" (keyup)="onInputChange($event, hiddenSearchInput.value)">
 </div>

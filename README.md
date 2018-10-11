@@ -85,6 +85,21 @@ export class MyComponent {
 }
 ```
 
+## Config
+
+Customization for the dropdown-menu can be achieved via the config object. Available properties are as follows:
+
+```ts
+config = {
+    flow: string, // 'down' is set by default, set to 'up' if desired
+    height: string, //set height of dropdown label
+    lineHeight: string, //set line height of dropdown label
+    isDisabled: boolean, //disables dropdown menu if true
+    searchEnabled: boolean, //if true, search input is available, filters results
+    scrollbarVisible: boolean //scrollbar appears to the right if true
+}
+```
+
 ## Styling
 
 Custom styling can be achieved by simply overriding the default styles. To overcome Angular's view encapsulation, you may need to use the /deep/ operator to target it (depending on the type of encapsulation your component is using).
