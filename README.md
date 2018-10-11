@@ -9,7 +9,7 @@ A simple Angular 6 dropdown menu with search.
 
 ## Simple Example
 
-	```ts
+	```js
 	// app.module.ts
 	import { NgModule } from '@angular/core';
 	import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +25,7 @@ A simple Angular 6 dropdown menu with search.
 	```
 
 
-	```ts
+	```js
 	// my.component.ts
 	import { Component } from '@angular/core';
 
