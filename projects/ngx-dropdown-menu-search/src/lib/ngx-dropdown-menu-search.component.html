@@ -1,12 +1,12 @@
 <div class="ht0 dropdown relative" (window:mouseup)="autoCloseDropdown($event)">
 	<div [ngStyle]="heightAndLineHeight" *ngIf="!config?.searchEnabled || (config?.searchEnabled && !optionsVisible)" [ngClass]="{'disabled' : config?.isDisabled, 'cursorClass' : !config?.isDisabled, 'gray-border-darker' : !errorVisible, 'red-border-light' : errorVisible}"  (click)="dropdownClick()" class="dropdown-label setBorder border-radius in-block setPadding">
 		<span class="in-block setMargin ellipsis">{{selectedOption}}</span>
-		<span [style.line-height]="config?.lineHeight" class="chevron-down-icon ft-size18 absolute right10"></span>
+		<span [style.line-height]="config?.lineHeight" class="chevron-down-icon ft-size18"></span>
 	</div>
 
 	<input [ngStyle]="heightAndLineHeight" [(ngModel)]="searchTerm" *ngIf="optionsVisible && config?.searchEnabled" (click)="optionsVisible = true" class="dropdown setPadding setWidth100 border-radius gray-border-darker setBorder" type="text" placeholder="Search">
 
-	<div *ngIf="optionsVisible" style="width: 105%" [ngClass]="{'bottom0' : config?.flow === 'up', 'scrollable' : config?.scrollbarVisible}" class="setMaxHeight mgn-bottom50 text-left shadow absolute z white-bg setZ border gray-border-darker border-radius setPaddingTopBottom" id="scrollbar-style">
+	<div *ngIf="optionsVisible" style="width: 100%" [ngClass]="{'bottom0' : config?.flow === 'up'}" class="setMaxHeight scrollable mgn-bottom text-left shadow absolute z white-bg setZ border mgn-bottom50 gray-border-darker border-radius setPaddingTopBottom" id="{{config?.scrollbarVisible ? 'scrollbar-style' : null}}">
 		<ul *ngFor="let option of options | searchFilter:searchTerm; let i = index">
 			<li [ngClass]="{'gray-bg' : option.name === element?.id}" (mouseup)="onOptionClick(option, option.name)" id="{{option.name}}"  class="option cursorClass">{{option.name}}<i *ngIf="option.name === selectedOption" class="fa fa-check mgn-left10" aria-hidden="true"></i></li>
 		</ul>

@@ -21,13 +21,16 @@ input:focus {
     bottom: 0;
 }
 
-.chevron-down-icon{
+.chevron-down-icon {
   display:inline-block;
   width:8px;
   height:8px;
   border-bottom:1px solid #98999a;
   border-right:1px solid #98999a;
-  transform: rotate(45deg);
+  position: absolute;
+  right: .625em;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .gray-border-darker {

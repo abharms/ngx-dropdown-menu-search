@@ -29,7 +29,7 @@ export class MyAppModule {}
 // my.component.ts
 import { Component, OnInit } from '@angular/core';
 
-import { IConfig, NgxDropdownMenuSearchComponent } from 'ngx-dropdown-menu-search';
+import { IConfig } from 'ngx-dropdown-menu-search';
 
 type NameAndId = {name: string, id: number};
 
